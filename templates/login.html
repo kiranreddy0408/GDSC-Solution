@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aarth</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="static/css/bootstrap.css">
+    <link rel="stylesheet" href="static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/responsive.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 100px auto;
+        }
+        .login-options {
+            display: flex;
+            justify-content: space-around;
+        }
+        .option {
+            text-align: center;
+            cursor: pointer;
+        }
+        .option img {
+            width: 90%;
+            height: 100%;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        #login-form {
+            margin-top: 30px;
+        }
+        #login-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        #login-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        .hidden {
+            display: none;
+        }
+        @media only screen and (max-width: 768px) {
+            .login-options {
+                flex-direction: column;
+                align-items: center;
+            }
+            .option {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    {% extends "navbar.html" %}
+    {% block content %}
+    <div class="container">
+        <div class="login-options">
+            <div class="option" onclick="window.location.href='auth';">
+                <img src="static/images/donor.png" alt="Donor">
+                <p>Donor</p>
+            </div>
+            
+            <div class="option" onclick="window.location.href='auth';">
+                <img src="static/images/volunteer.png" alt="Volunteer">
+                <p>Volunteer</p>
+            </div>
+            <div class="option" onclick="window.location.href='auth';">
+                <img src="static/images/volunteer.png" alt="Volunteer">
+                <p>Volunteer</p>
+            </div>
+           
+        </div>
+        
+    </div>
+    
+    {% endblock %}
+</body>
+</html>

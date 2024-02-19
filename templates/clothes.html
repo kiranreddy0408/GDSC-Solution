@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>Inance</title>
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="static/css/bootstrap.css" />
+  <!-- font awesome style -->
+  <link rel="stylesheet" type="text/css" href="static/css/font-awesome.min.css" />
+
+  <!-- Custom styles for this template -->
+  <link href="static/css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="static/css/responsive.css" rel="stylesheet" />
+<style>  
+
+.ngo-list {
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 25%;
+}
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+.ngo-img{
+    width:90%;
+}</style>
+</head>
+
+<body>
+  <div class="hero_area">
+    <!-- header section strats -->
+    {% extends "header-footer.html" %}
+
+    {% block content %}
+    <!-- end header section -->
+  </div>
+
+  <!-- service section -->
+
+  <section class="service_section layout_padding">
+    <div class="container ">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Clothing Services</h2>
+            </div>
+            
+            <div class="col-md-2 text-right">
+                <p class="ngo-list">List of NGOs</p>
+            </div>
+            <div class="col-md-2 text-right ">
+                <button class="btn btn-primary" id="applyBtn">Donate</button>
+            </div>
+            <div class="col-md-2 text-right ">
+                <button class="btn btn-primary" id="applyBtn">Apply</button>
+            </div>
+          
+    </div>
+        <!-- Modal -->
+        <div id="ngoModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>NGO List</h3>
+                <ul id="ngoList" class="ngo-img">
+                    <li><a href="https://example.com/ngo1"><p>Clothes for help</p>
+                        <img class="ngo-img" src="static/images/cngo.png" alt="">
+                    </a></li>
+                    <li><a href="https://example.com/ngo2"><p>Happiee Souls</p>
+                        <img class="ngo-img" src="static/images/cngo1.png" alt="">
+                    </a></li>
+                    <!-- <li><a href="https://example.com/ngo2"><p>Feeding India</p>
+                        <img src="static/images/fngo3.png" alt="">
+                    </a></li>
+                    <li><a href="https://example.com/ngo2"><p>Shuddhi NGO</p>
+                        <img src="static/images/fngo4.png" alt="">
+                    </a></li>
+                    <li><a href="https://example.com/ngo2"><p>Dilasa Sanstha</p>
+                        <img  class="ngo-img"src="static/images/fngo5.png" alt="">
+                    </a></li> -->
+                   
+                    <!-- Add more NGOs as needed -->
+                </ul>
+            </div>
+        </div>
+        
+        <script>
+            var modal = document.getElementById("ngoModal");
+            var openModalLink = document.querySelector(".ngo-list");
+            var closeButton = document.querySelector(".close");
+        
+            openModalLink.addEventListener("click", function() {
+                modal.style.display = "block";
+            });
+        
+            closeButton.addEventListener("click", function() {
+                modal.style.display = "none";
+            });
+        
+            window.addEventListener("click", function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            });
+        
+            document.getElementById("applyBtn").addEventListener("click", function() {
+                // Implement your apply button logic here
+               window.open("https://forms.gle/7R7jCz6Aacxw5VcR7");
+            });
+        </script>
+      <div class="row">
+        
+        <div class="col-sm-6 col-md-4 mx-auto">
+          <div class="box ">
+            <div class="img-box">
+              <img src="static/images/enteprise.jpg" alt="" />
+            </div>
+            <div class="detail-box">
+              <h5>
+                Small enterprises
+              </h5>
+              <p>
+                Small businesses often face challenges with aging or slightly damaged stock that can't be sold traditionally. But what if this "waste" could become someone's treasure, offering warmth, dignity, and a chance for a better life? Heartbridge provides a unique opportunity for small enterprises to transform their old and damaged stock into impactful donations that empower underserved communities.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 mx-auto">
+          <div class="box ">
+            <div class="img-box">
+              <img src="static/images/household.jpg" alt="" />
+            </div>
+            <div class="detail-box">
+              <h5>
+                Household
+              </h5>
+              <p>
+                Every household has clothes that no longer spark joy – items tucked away in drawers, gathering dust instead of warming someone in need. Heartbridge bridges this gap, connecting the abundance in your closet with the essential needs of communities facing clothing insecurity. Donating your gently used clothes isn't just decluttering, it's an act of kindness with a ripple effect.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="btn-box">
+        <a href="">
+          View More
+        </a>
+      </div> -->
+    </div>
+  </section>
+
+  <!-- end service section -->
+
+  <!-- info section -->
+  {% endblock%}
+</body>
+
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Heart Bridge</title>
+
+    <!-- slider stylesheet -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="static/css/bootstrap.css" />
+    <!-- font awesome style -->
+    <link rel="stylesheet" type="text/css" href="static/css/font-awesome.min.css" />
+
+    <!-- Custom styles for this template -->
+    <link href="static/css/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="static/css/responsive.css" rel="stylesheet" />
+
+    <style>
+        .leaderboard-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap; /* Ensure flex items wrap to the next line on smaller screens */
+        }
+
+        .leaderboard {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            width: calc(50% - 20px); /* Adjust width as needed */
+            margin-bottom: 20px; /* Add margin between leaderboard sections */
+        }
+
+        .leaderboard h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 8px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .rank {
+            text-align: center;
+        }
+
+        .name {
+            text-align: left;
+            padding-left: 20px;
+        }
+
+        .points {
+            text-align: center;
+        }
+
+        .user-image {
+            width: 30px; /* Adjust size as needed */
+            height: 30px; /* Adjust size as needed */
+            border-radius: 50%; /* To make it round */
+            float:right;
+        }
+
+        .top-user {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .top-user-item {
+            flex-basis: 30%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        .top-user-image {
+            width: 100px; /* Adjust size as needed */
+            height: 100px; /* Adjust size as needed */
+            border-radius: 50%; /* To make it round */
+            margin-bottom: 10px;
+            float:right;
+        }
+
+        .top-user-name {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .top-user-hours {
+            text-align: center;
+        }
+
+        .top-ngo {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .top-ngo-item {
+            flex-basis: 30%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        .top-ngo-logo {
+            width: 100px; /* Adjust size as needed */
+            height: 100px; /* Adjust size as needed */
+            border-radius: 50%; /* To make it round */
+            margin-bottom: 10px;
+        }
+
+        .top-ngo-name {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .top-ngo-rank {
+            text-align: center;
+        }
+
+        .video-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .video-container video {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hero_area">
+        <!-- header section starts -->
+        {% extends "navbar.html" %}
+
+        {% block content %}
+        <div class="leaderboard-container">
+            <div class="leaderboard">
+                <h1>Volunteer Leaderboard</h1>
+
+                <div class="top-user">
+                    <div class="top-user-item">
+                        <img src="static/images/user1.jpeg" alt="User 1" class="top-user-image">
+                        <div class="top-user-name">John Doe</div>
+                        <div class="top-user-hours">Hours: 100</div>
+                    </div>
+                    <div class="top-user-item">
+                        <img src="static/images/user2.jpg" alt="User 2" class="top-user-image">
+                        <div class="top-user-name">Jane Smith</div>
+                        <div class="top-user-hours">Hours: 90</div>
+                    </div>
+                    <div class="top-user-item">
+                        <img src="static/images/user1.jpeg" alt="User 3" class="top-user-image">
+                        <div class="top-user-name">Alice Johnson</div>
+                        <div class="top-user-hours">Hours: 85</div>
+                    </div>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Name</th>
+                            <th>Hours</th>
+                            <th>Rating</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- User data will be populated here -->
+                        <tr>
+                            <td class="rank">1</td>
+                            <td class="name"><img src="static/images/user1.jpeg" alt="John Doe" class="user-image"><span>John Doe</span></td>
+                            <td>100</td>
+                            <td class="rating">4.9</td>
+                        </tr>
+                        <tr>
+                            <td class="rank">2</td>
+                            <td class="name"><img src="static/images/user2.jpg" alt="Jane Smith" class="user-image"><span>Jane Smith</span></td>
+                            <td>90</td>
+                            <td class="rating">4.2</td>
+                        </tr>
+                        <tr>
+                            <td class="rank">3</td>
+                            <td class="name"><img src="static/images/user2.jpg" alt="Alice Johnson" class="user-image"><span>Alice Johnson</span></td>
+                            <td>85</td>
+                            <td class="rating">3.5</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="leaderboard">
+                <h1>NGO Leaderboard</h1>
+
+                <!-- NGO leaderboard content -->
+                <div class="top-ngo">
+                    <div class="top-ngo-item">
+                        <img src="static/images/user1.jpeg" alt="User 1" class="top-ngo-logo">
+                        <div class="top-ngo-name">John Doe</div>
+                        <div class="top-ngo-hours">500 lives impacted</div>
+                    </div>
+                    <div class="top-ngo-item">
+                        <img src="static/images/user2.jpg" alt="User 2" class="top-ngo-logo">
+                        <div class="top-ngo-name">Jane Smith</div>
+                        <div class="top-ngo-hours">355 lives impacted</div>
+                    </div>
+                    <div class="top-ngo-item">
+                        <img src="static/images/user1.jpeg" alt="User 3" class="top-ngo-logo">
+                        <div class="top-ngo-name">Alice Johnson</div>
+                        <div class="top-ngo-hours">150 lives impacted</div>
+                    </div>
+                </div>
+                <!-- NGO Table -->
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Name</th>
+                            <th>Impact</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ngoTableBody">
+                        <!-- NGO data will be populated here -->
+                        <tr>
+                            <td>1</td>
+                            <td>NGO Name 1</td>
+                            <td>500 lives impacted</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>NGO Name 2</td>
+                            <td>400 lives impacted</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>NGO Name 3</td>
+                            <td>300 lives impacted</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Video section -->
+        <div class="video-container">
+            <video autoplay loop>
+                <source src="static/images/partners.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        
+        {% endblock %}
+
+        <!-- Populate user data using JavaScript -->
+        <script src="script.js"></script>
+        <script>
+            // NGO data
+            const ngos = [
+                { rank: 1, name: "NGO Name 1", impact: "500 lives impacted" },
+                { rank: 2, name: "NGO Name 2", impact: "400 lives impacted" },
+                { rank: 3, name: "NGO Name 3", impact: "300 lives impacted" },
+                // Add more NGO data as needed
+            ];
+
+            // Populate top NGO leaderboard
+            const ngoLeaderboard = document.getElementById('ngoLeaderboard');
+            ngos.slice(0, 3).forEach((ngo) => { // Showing top 3 NGOs
+                const ngoItem = document.createElement('div');
+                ngoItem.classList.add('top-ngo-item');
+                ngoItem.innerHTML = `
+                    <img src="ngo${ngo.rank}.jpg" alt="${ngo.name}" class="top-ngo-logo">
+                    <div class="top-ngo-name">${ngo.name}</div>
+                    <div class="top-ngo-rank">Rank: ${ngo.rank}</div>
+                `;
+                ngoLeaderboard.appendChild(ngoItem);
+            });
+
+            // Populate NGO table
+            const ngoTableBody = document.getElementById('ngoTableBody');
+            ngos.forEach((ngo) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${ngo.rank}</td>
+                    <td>${ngo.name}</td>
+                    <td>${ngo.impact}</td>
+                `;
+                ngoTableBody.appendChild(row);
+            });
+        </script>
+
+</body>
+
+</html>

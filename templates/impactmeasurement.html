@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>Heart Bridge</title>
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="static/css/bootstrap.css" />
+  <!-- font awesome style -->
+  <link rel="stylesheet" type="text/css" href="static/css/font-awesome.min.css" />
+
+  <!-- Custom styles for this template -->
+  <link href="static/css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="static/css/responsive.css" rel="stylesheet" />
+
+</head>
+<title>Images and Testimonials</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .image-gallery {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 20px;
+    }
+    .image-gallery img {
+        width: 22%; /* Adjust based on your preference */
+        height: auto;
+        border-radius: 4px; /* Optional: for rounded corners */
+    }
+    @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.image-gallery img {
+    animation: fadeIn 2s ease-out;
+}
+
+.testimonials {
+    display: flex;
+    justify-content: space-around; /* Align items in a row and space them evenly */
+    flex-wrap: wrap; /* Allows items to wrap to the next line on smaller screens */
+    margin-top: 20px;
+}
+.testimonial {
+    background-color: #f0f0f0;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: center;
+    flex: 1; /* Allows each testimonial to grow equally */
+    min-width: 250px; /* Minimum width before wrapping */
+    max-width: 600px; /* Maximum width to maintain readability */
+    border: 5px solid #333;
+}
+
+.testimonial img {
+    width: 100%; /* Make image responsive within testimonial */
+    height: auto;
+    margin-bottom: 20px;
+}
+</style>
+</head>
+<body>
+    <div class="hero_area">
+        <!-- header section strats -->
+        {% extends "header-footer.html" %}
+    
+    {% block content %}
+    <title>Testimonials</title>
+    <div class="image-gallery">
+        <img src="static/images/c1.png" alt="Image 1">
+        <img src="static/images/c2.png" alt="Image 2">
+        <img src="static/images/c3.png" alt="Image 3">
+        <img src="static/images/c4.png" alt="Image 4">
+    </div>
+
+    <div class="testimonials">
+        <div class="testimonial">
+            <img src="static/images/girl.jpg" alt="A descriptive alternative text">
+            <p>Ruhi's wide eyes, alight with wonder, tell a story far beyond the picture. she holds a used children's book, a gift from heartbridge, but it's more than just pages and ink. It's a doorway to a boundless world of imagination, a spark of learning ignited by heartbridge's mission. "This book opened a door to a world of adventure," whispers Ruhi, her ten-year-old voice brimming with gratitude. heartbridge, with its simple act of connecting surplus resources to those in need, has empowered her with the gift of education, transforming his life by fostering a love for knowledge and exploration. This picture captures the essence of hearbridge - a platform that bridges the gap between resources and potential, unlocking doors to brighter futures, one book, one smile, one empowered child at a time.</p>
+            <p>- Ruhi</p>
+        </div>
+        <div class="testimonial">
+            <img src="static/images/image 123.jpg" alt="A descriptive alternative text">
+            <p>After years of dreaming about starting my own small business, the reality seemed far beyond my reach. Financial hurdles appeared insurmountable, and my vision was fading into the backdrop of daily struggles. That's when the Street Cause
+                stepped in, turning the tide with their incredible support and generosity.
+
+                Their fundraising campaign was more than just a financial lifeline; it was a beacon of hope. The funds raised not only helped me secure the initial capital I needed but also connected me with mentors and resources essential for navigating the early stages of entrepreneurship.
+                
+                Today, as I stand in front of my own store, I'm overwhelmed with gratitude. Street Cause didn't just help me financially; they believed in my dream when I was close to giving up. Their unwavering support empowered me to take the leap, laying the foundation for a future I once thought was impossible.
+                
+                To everyone who contributed and to street cause for their incredible work, I owe my heartfelt thanks. Your generosity has changed my life, and I am committed to paying this kindness forward, one day at a time.</p>
+            <p>- Shiva</p>
+        </div>
+    </div>
+    
+
+</body>
+</html>
+{% endblock %}

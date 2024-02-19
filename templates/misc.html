@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>Inance</title>
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="static/css/bootstrap.css" />
+  <!-- font awesome style -->
+  <link rel="stylesheet" type="text/css" href="static/css/font-awesome.min.css" />
+
+  <!-- Custom styles for this template -->
+  <link href="static/css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="static/css/responsive.css" rel="stylesheet" />
+<style>  
+
+.ngo-list {
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 25%;
+}
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+.ngo-img{
+    width:250%;
+}</style>
+</head>
+
+<body>
+  <div class="hero_area">
+    <!-- header section strats -->
+    {% extends "header-footer.html" %}
+
+    {% block content %}
+    <!-- end header section -->
+  </div>
+
+  <!-- service section -->
+
+  <section class="service_section layout_padding">
+    <div class="container ">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Misc Services</h2>
+            </div>
+            
+            <div class="col-md-2 text-right">
+              <p class="ngo-list">List of NGOs</p>
+          </div>
+          <div class="col-md-2 text-right ">
+              <button class="btn btn-primary" id="applyBtn">Donate</button>
+          </div>
+          <div class="col-md-2 text-right ">
+              <button class="btn btn-primary" id="applyBtn">Apply</button>
+          </div>
+          
+    </div>
+        <!-- Modal -->
+        <div id="ngoModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>NGO List</h3>
+                <ul id="ngoList" class="ngo-img">
+                    <li><a href="https://example.com/ngo1"><p>Share at door step</p>
+                        <img src="static/images/mngo.png" alt="">
+                    </a></li>
+                    <!-- <li><a href="https://example.com/ngo2"><p>Robin Hood Army</p>
+                        <img src="static/images/fngo2.png" alt="">
+                    </a></li>
+                    <li><a href="https://example.com/ngo2"><p>Feeding India</p>
+                        <img src="static/images/fngo3.png" alt="">
+                    </a></li>
+                    <li><a href="https://example.com/ngo2"><p>Shuddhi NGO</p>
+                        <img src="static/images/fngo4.png" alt="">
+                    </a></li>
+                    <li><a href="https://example.com/ngo2"><p>Dilasa Sanstha</p>
+                        <img  class="ngo-img"src="static/images/fngo5.png" alt="">
+                    </a></li> -->
+                   
+                    <!-- Add more NGOs as needed -->
+                </ul>
+            </div>
+        </div>
+        
+        <script>
+            var modal = document.getElementById("ngoModal");
+            var openModalLink = document.querySelector(".ngo-list");
+            var closeButton = document.querySelector(".close");
+        
+            openModalLink.addEventListener("click", function() {
+                modal.style.display = "block";
+            });
+        
+            closeButton.addEventListener("click", function() {
+                modal.style.display = "none";
+            });
+        
+            window.addEventListener("click", function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            });
+        
+            document.getElementById("applyBtn").addEventListener("click", function() {
+                // Implement your apply button logic here
+               window.open("https://forms.gle/7R7jCz6Aacxw5VcR7");
+            });
+        </script>
+      <div class="row">
+        <div class="col-sm-6 col-md-4 mx-auto">
+          <div class="box ">
+            <div class="img-box">
+              <img class="ngo-img" src="static/images/vintage.jpg" alt="" />
+            </div>
+            <div class="detail-box">
+              <h5>
+                Vintage
+              </h5>
+              <p>
+                While clothing, books, and food are commonly donated items, your household holds a treasure trove beyond that! Many seemingly ordinary things can become lifesavers for those in need.              </p>
+            </div>
+          </div>
+        </div>
+       
+      <!-- <div class="btn-box">
+        <a href="">
+          View More
+        </a>
+      </div> -->
+    </div>
+  </section>
+
+  <!-- end service section -->
+
+  <!-- info section -->
+  {% endblock%}
+</body>
+
+</html>

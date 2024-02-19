@@ -1,0 +1,275 @@
+<header class="header_section">
+    <div class="header_bottom">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index">
+            <span>
+              Heart Bridge
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ">
+              <li class="nav-item active">
+                <a class="nav-link" href="index">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item dropdown"> <!-- Add dropdown class to this li -->
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAbout" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    About
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownAbout">
+                  <a class="dropdown-item" href="about">About Us</a>  
+                  <a class="dropdown-item" href="https://docs.google.com/forms/d/e/1FAIpQLSfxsxswnM9mJVcch4jR854gERYusjbSCreYqGdGBe-7TIa3EQ/viewform?usp=sf_link">Certificates</a>
+                  <a class="dropdown-item" href="about">Faqs</a>  
+                </div>
+            </li>
+              <li class="nav-item">
+                <a class="nav-link" href="impactmeasurement">Impact Measurement</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contact">Contact Us</a>
+              </li>
+              <li class="nav-item dropdown"> <!-- Add dropdown class to this li -->
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownEvents" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Events
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownEvents">
+                    <a class="dropdown-item" href="add-event">Add Event</a>
+                    <a class="dropdown-item" href="ongoing-events">On Going Events</a>
+                </div>
+            </li>
+              <li class="nav-item">
+                <a class="nav-link" href="leaderboard">Leaderboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#locations">Our locations</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="patners">Partners</a>
+              </li>
+              <!-- <li><a href="login" id="signup_link">Sign Up</a></li>
+<li><a href="#" id="logout" style="display: none;">Log Out</a></li> -->
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+  
+
+{% block content %}
+{% endblock %}
+  
+  <section id="contact" class="info_section ">
+    <div class="container">
+      <h4>
+        Get In Touch
+      </h4>
+      <div class="row">
+        <div class="col-lg-10 mx-auto">
+          <div class="info_items">
+            <div class="row">
+              <div class="col-md-4">
+                <a href="#locations">
+                  <div class="item ">
+                    <div class="img-box ">
+                      <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    </div>
+                    <p>
+                      Locations
+                    </p>
+                  </div>
+                </a>
+              </div>
+              <div class="col-md-4">
+                <a href="">
+                  <div class="item ">
+                    <div class="img-box ">
+                      <i class="fa fa-phone" aria-hidden="true"></i>
+                    </div>
+                    <p>
+                      +02 1234567890
+                    </p>
+                  </div>
+                </a>
+              </div>
+              <div class="col-md-4">
+                <a href="">
+                  <div class="item ">
+                    <div class="img-box">
+                      <i class="fa fa-envelope" aria-hidden="true"></i>
+                    </div>
+                    <p>
+                      heartbridge@gmail.com
+                    </p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="social-box">
+      <h4>
+        Follow Us
+      </h4>
+      <div class="box">
+        <a href="">
+          <i class="fa fa-facebook" aria-hidden="true"></i>
+        </a>
+        <a href="">
+          <i class="fa fa-twitter" aria-hidden="true"></i>
+        </a>
+        <a href="">
+          <i class="fa fa-youtube" aria-hidden="true"></i>
+        </a>
+        <a href="">
+          <i class="fa fa-instagram" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- end info_section -->
+
+  <!-- footer section -->
+  <footer class="footer_section">
+    <div class="container">
+      <p>
+        &copy; <span ></span> 
+        <a href="index">Heart Bridge 2024</a>
+      </p>
+    </div>
+  </footer>
+  <!-- footer section -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
+    if (isLoggedIn) {
+        document.getElementById('logout').style.display = 'block';
+    } else {
+        document.getElementById('signup_link').style.display = 'block';
+    }
+});
+</script>
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
+  import { getAuth,createUserWithEmailAndPassword,signInWithEmailAndPassword,signOut } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js'
+  import { getFirestore, collection,getDocs, setDoc,addDoc} from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js';
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyDBdapLHsJ9DMTW-GieApGtdUcjue8EjYc",
+    authDomain: "testapp-7db68.firebaseapp.com",
+    projectId: "testapp-7db68",
+    storageBucket: "testapp-7db68.appspot.com",
+    messagingSenderId: "949307014461",
+    appId: "1:949307014461:web:0965acfe35a98b33285954",
+    measurementId: "G-23VMX0VE7N"
+   //
+  };
+
+  // Initialize Firebase
+ 
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore();
+  const usersCollectionRef = collection(db, 'users');
+  const analytics = getAnalytics(app);
+
+const auth = getAuth(); 
+
+document.getElementById("signup_link").addEventListener("click", function() {
+    document.getElementById("login_form_container").style.display = "none";
+    document.getElementById("signup_form_container").style.display = "block";
+});
+
+document.getElementById("register").addEventListener("click", function() {
+  var email = document.getElementById("email").value;
+  var password = document.getElementById("password").value;
+  var username = document.getElementById("username").value;
+  var address = document.getElementById("address").value;
+  var mobileNo = document.getElementById("mobileNo").value;
+
+  if (!email || !password || !username || !address || !mobileNo) {
+    alert("Please fill in all required fields.");
+    return;
+  }
+
+  createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      alert("Registration successful!");
+
+
+      addDoc(collection(db, "users"), {
+  uid:userCredential.user.uid,
+  email: email,
+  username: username,
+  address: address,
+  mobileNo: mobileNo,
+})
+.then((docRef) => {
+  console.log("User document written with ID:", docRef.id);
+  window.location.href="auth";
+})
+.catch((error) => {
+  console.error("Error adding user data to Firestore:", error);
+  alert("An error occurred while storing user data. Please try again later.");
+});
+        
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.error("Error creating user:", errorMessage);
+      alert("Registration failed: " + errorMessage);
+    });
+});
+
+document.getElementById("login").addEventListener("click", function() {
+  var email =  document.getElementById("login_email").value;
+  var password = document.getElementById("login_password").value;
+
+  signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    const user = userCredential.user;
+    console.log(user);
+    alert(user.email+" Login successfully!!!");
+    localStorage.setItem("isLoggedIn", true);
+    window.location.href = "index";
+    document.getElementById('logout').style.display = 'block';
+  })
+  .catch((error) => {
+    const errorMessage = error.message;
+    console.log(errorMessage);
+    alert(errorMessage);
+  });               
+});
+
+document.getElementById("logout").addEventListener("click", function() {
+  signOut(auth).then(() => {
+      console.log('Sign-out successful.');
+      alert('Sign-out successful.');
+      document.getElementById('logout').style.display = 'none';
+    }).catch(() => {
+      console.log('An error happened.');
+    });               
+});
+</script>
+  <script src="static/js/jquery-3.4.1.min.js"></script>
+  <script src="static/js/bootstrap.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+  <script src="static/js/custom.js"></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
+  <!-- End Google Map -->
