@@ -85,6 +85,7 @@
 </head>
 
 <body>
+    <input id="user_id" type="text" value="{{session['user_id']}}" hidden >
   <div class="hero_area">
     <!-- header section strats -->
     {% extends "navbar.html" %}
@@ -94,7 +95,7 @@
 <div class="events-container" id="eventsContainer"></div>
 
 
-<script type="module" src="static/js/ongoing-events.js"></script>
+<script type="module" src="static/js/my-events.js"></script>
 {% endblock %}
 
 

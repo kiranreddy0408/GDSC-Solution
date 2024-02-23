@@ -1,55 +1,101 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <!-- Basic -->
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <!-- Mobile Metas -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <!-- Site Metas -->
-  <meta name="keywords" content="" />
-  <meta name="description" content="" />
-  <meta name="author" content="" />
-  <style>
-    .iframe-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100%; /* Assuming you want it to take the full height of hero_area */
-    }
-  
-    .iframe-container iframe {
-      max-width: 100%;
-      max-height: 100%;
-    }
-  </style>
-  
-  <title>Heart Bridge</title>
-
-  <!-- slider stylesheet -->
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
-  <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="static/css/bootstrap.css" />
-  <!-- font awesome style -->
-  <link rel="stylesheet" type="text/css" href="static/css/font-awesome.min.css" />
-
-  <!-- Custom styles for this template -->
-  <link href="static/css/style.css" rel="stylesheet" />
-  <!-- responsive style -->
-  <link href="static/css/responsive.css" rel="stylesheet" />
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Event Details</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Custom styles -->
+    <link href="static/css/style.css" rel="stylesheet">
+    <!-- Responsive styles -->
+    <link href="static/css/responsive.css" rel="stylesheet">
+    <style>
+        /* Custom CSS modifications */
+        body {
+            background-color: #f3f3f3;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        button[type="submit"] {
+            width: 100%;
+        }
+    </style>
 </head>
-
 <body>
-  <div class="hero_area">
-    <!-- header section strats -->
-    {% extends "header-footer.html" %}
+    <div class="hero_area">
+        <!-- Header section -->
+        {% extends "navbar.html" %}
+        {% block content %}
+        <div class="container">
+            <h1>Add Event Details</h1>
+            <form id="eventForm">
+                <div class="form-group">
+                    <label for="eventName">Event Name</label>
+                    <input type="text" class="form-control" id="eventName" name="eventName" required>
+                </div>
+                <div class="form-group">
+                    <label for="eventVenue">Venue</label>
+                    <input type="text" class="form-control" id="eventVenue" name="eventVenue" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="eventDate">Date</label>
+                        <input type="date" class="form-control" id="eventDate" name="eventDate" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="eventRegistrationLink">Registration Link (Google Form URL)</label>
+                      <div class="input-group">
+                          <input type="url" class="form-control" id="eventRegistrationLink" name="eventRegistrationLink" required>
+                          <div class="input-group-append">
+                              <a id="openGoogleForm" class="btn btn-outline-secondary"  href="https://docs.google.com/forms/u/0/"  target="_blank">+</a>
+                          </div>
+                      </div>
+                  </div>
+                    
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="eventStartTime">Start Time</label>
+                    <input type="time" class="form-control" id="eventStartTime" name="eventStartTime" required>
+                </div>
+                    <div class="form-group col-md-6">
+                        <label for="eventEndTime">End Time</label>
+                        <input type="time" class="form-control" id="eventEndTime" name="eventEndTime" required>
+                    </div>
+                    
+                  
+                </div>
+                <div class="form-group">
+                    <label for="eventDescription">Description</label>
+                    <textarea class="form-control" id="eventDescription" name="eventDescription" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Add Event</button>
+            </form>
+        </div>
+        <script src="static/js/add-event.js" type="module"></script>
+        {% endblock %}
+    </div>
+    <script>
 
-{% block content %}
-<div class="iframe-container">
-    <iframe src="https://calendar.google.com/calendar/embed?src=4e332b9170661ff2a186fbc66c3e2c11cc39a05d08050cf3ff993525b75b9375%40group.calendar.google.com&ctz=Asia%2FKolkata" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-  </div>
+
+
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
-  {% endblock %}
-    
+</html>

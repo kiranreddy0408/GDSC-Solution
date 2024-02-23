@@ -67,28 +67,36 @@
     </style>
 </head>
 <body>
-    {% extends "navbar.html" %}
+    {% extends "header-footer.html" %}
     {% block content %}
+    
     <div class="container">
         <div class="login-options">
-            <div class="option" onclick="window.location.href='auth';">
+            <div class="option" onclick="window.location.href='signin?donor';">
                 <img src="static/images/donor.png" alt="Donor">
                 <p>Donor</p>
             </div>
             
-            <div class="option" onclick="window.location.href='auth';">
+            <div class="option" onclick="window.location.href='signin?volunteer';">
                 <img src="static/images/volunteer.png" alt="Volunteer">
                 <p>Volunteer</p>
             </div>
-            <div class="option" onclick="window.location.href='auth';">
-                <img src="static/images/volunteer.png" alt="Volunteer">
+            <div class="option" onclick="window.location.href='signin?Beneficary';">
+                <img src="static/images/volunteer.png" alt="Beneficary">
                 <p>Volunteer</p>
             </div>
            
         </div>
         
     </div>
-    
     {% endblock %}
+    
+   
+    <script src="static/js/jquery-3.4.1.min.js"></script>
+  <script src="static/js/bootstrap.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+  <script src="static/js/custom.js"></script>
 </body>
+
 </html>
