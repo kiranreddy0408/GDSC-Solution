@@ -38,7 +38,7 @@ eventForm.addEventListener('submit', (e) => {
 
     // Getting form input values
     const eventName = eventForm.eventName.value;
-    const eventVenue = eventForm.eventVenue.value;
+    const eventVenue = eventForm.search_input.value;
     const eventDate = eventForm.eventDate.value;
     const eventStartTime = eventForm.eventStartTime.value;
     const eventEndTime = eventForm.eventEndTime.value;

@@ -1,5 +1,9 @@
 from flask import Flask, render_template
 from flask import Flask, request, jsonify, session, redirect
+import re
+import subprocess
+import json
+import execjs
 
 app = Flask(__name__)
 app.secret_key = 'beyond-charity'
@@ -63,6 +67,15 @@ def signin():
 @app.route('/My-events')
 def myevents():
     return render_template('my-events.html')
+@app.route('/donate')
+def donate():
+    return render_template('donate.html')
+@app.route('/fetchdonations')
+def fetch_donations():
+    return render_template('fetchdonations.html')
+@app.route('/viewmap')
+def viewmap():
+    return render_template('viewmap.html')
 
 @app.route('/loginsess', methods=['POST'])
 def loginsess():
@@ -89,7 +102,7 @@ def logoutsess():
 
     # Perform any additional logout actions if needed
 
-    return redirect('/index') 
+    return redirect('/') 
     
 @app.route('/signup')
 def signup():

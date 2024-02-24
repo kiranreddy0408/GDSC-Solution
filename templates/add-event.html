@@ -13,7 +13,34 @@
     <link href="static/css/style.css" rel="stylesheet">
     <!-- Responsive styles -->
     <link href="static/css/responsive.css" rel="stylesheet">
-    <style>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Google Maps JavaScript library -->
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyDjkCofvQ_UyeMYN-jIEw6wBpNrWfk5HIA"></script>
+ 
+<style>
+#search_input {font-size:18px;}
+
+
+.loc input{
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.loc input:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
         /* Custom CSS modifications */
         body {
             background-color: #f3f3f3;
@@ -48,10 +75,14 @@
                     <label for="eventName">Event Name</label>
                     <input type="text" class="form-control" id="eventName" name="eventName" required>
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="eventVenue">Venue</label>
                     <input type="text" class="form-control" id="eventVenue" name="eventVenue" required>
-                </div>
+                </div> -->
+                 <div class="form-group loc">
+     <label>Location</label>
+    <input type="text" class="form-control" id="search_input" placeholder="Type address..." />
+   </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="eventDate">Date</label>
@@ -88,14 +119,32 @@
             </form>
         </div>
         <script src="static/js/add-event.js" type="module"></script>
-        {% endblock %}
     </div>
-    <script>
-
-
-
-    </script>
+<script>
+var searchInput = 'search_input';
+ 
+$(document).ready(function () {
+ var autocomplete;
+ autocomplete = new google.maps.places.Autocomplete((document.getElementById(searchInput)), {
+  types: ['geocode'],
+  componentRestrictions: {
+   country: "IN",
+//    state:"TELANGANA"
+  }
+ });
+ var defaultBounds = new google.maps.LatLngBounds(
+        new google.maps.LatLng(17.12, 77.36), // South-west corner (approx. coordinates for Telangana)
+        new google.maps.LatLng(19.9, 81.17)   // North-east corner (approx. coordinates for Telangana)
+    );
+    autocomplete.setBounds(defaultBounds);
+  
+ google.maps.event.addListener(autocomplete, 'place_changed', function () {
+  var near_place = autocomplete.getPlace();
+ });
+});
+</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        {% endblock %}
 </body>
 </html>

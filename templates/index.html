@@ -51,9 +51,25 @@
               </h2>
               <p>
                 India faces stark realities of poverty, food insecurity, and limited access to basic necessities. Beyondcharity addresses these challenges head-on, not just filling stomachs but igniting minds and building brighter futures for underserved communities. This comprehensive platform connects donors with specific needs, delivering food, clothing, and even used children's books, fostering education and empowerment alongside basic necessities. Implementing a "red zone" approach to prioritize food and clothing distribution for rural poor populations in slums</p>
-              <a href="login">
-                Join Us
+             
+              {% if 'isLoggedIn' in session %}
+              <a href="donate">
+                Donate
               </a>
+          {% else %}   
+          <a href="login">
+            Join Us
+          </a>
+          {% endif %}
+              {% if 'isLoggedIn' in session %}
+              <a href="/fetchdonations">
+                Find Donations
+              </a>
+          {% else %}   
+          <a href="login">
+            Join Us
+          </a>
+          {% endif %}
             </div>
           </div>
           <div class="col-md-6">
