@@ -73,6 +73,12 @@ def fetch_donations():
 @app.route('/viewmap')
 def viewmap():
     return render_template('viewmap.html')
+@app.route('/needs')
+def needs():
+    return render_template('needs.html')
+@app.route('/mydeliveries')
+def mydeliveries():
+    return render_template('my-deliveries.html')
 
 @app.route('/loginsess', methods=['POST'])
 def loginsess():

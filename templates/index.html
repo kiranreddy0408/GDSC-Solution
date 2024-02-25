@@ -52,23 +52,26 @@
               <p>
                 India faces stark realities of poverty, food insecurity, and limited access to basic necessities. Beyondcharity addresses these challenges head-on, not just filling stomachs but igniting minds and building brighter futures for underserved communities. This comprehensive platform connects donors with specific needs, delivering food, clothing, and even used children's books, fostering education and empowerment alongside basic necessities. Implementing a "red zone" approach to prioritize food and clothing distribution for rural poor populations in slums</p>
              
+                {% if 'isLoggedIn' in session %}
+                {% if session['userType'] == 'donor' %}
+                    <a href="donate">Donate</a>
+                {% elif session['userType'] == 'volunteer' %}
+                    <a href="deliveries">Deliveries</a>
+                {% else %}
+                    <a href="needs">Register Needs</a>
+                {% endif %}
+            {% else %}   
+                <a href="login">Join Us</a>
+            {% endif %}
+            
               {% if 'isLoggedIn' in session %}
-              <a href="donate">
-                Donate
-              </a>
-          {% else %}   
-          <a href="login">
-            Join Us
-          </a>
-          {% endif %}
-              {% if 'isLoggedIn' in session %}
-              <a href="/fetchdonations">
-                Find Donations
-              </a>
-          {% else %}   
-          <a href="login">
-            Join Us
-          </a>
+              {% if session['userType'] == 'donor' %}
+                    <a href="/fetchdonations">Find Needs</a>
+                {% elif session['userType'] == 'volunteer' %}
+                    <a href="/fetchdonations">Find Needy</a>
+                {% else %}
+                    <a href="/fetchdonations">Find Donations</a>
+                {% endif %}
           {% endif %}
             </div>
           </div>

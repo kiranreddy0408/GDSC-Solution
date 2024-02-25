@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <style>
+.events-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Adjust column width as needed */
+  grid-gap: 20px; /* Adjust gap between cards as needed */
+  margin: 20px; /* Add margin around the container */
+  background-color: #fff;
+}
+
+.event {
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for depth */
+}
+
+.event h2 {
+  margin-top: 0;
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px; /* Add margin bottom to separate title from content */
+}
+
+.event p {
+  margin-bottom: 10px;
+}
+
+.event .btn {
+  display: inline-block;
+  padding: 8px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.event .btn:hover {
+  background-color: #0056b3;
+}
+
+/* Media query for responsiveness */
+@media screen and (max-width: 768px) {
+  .events-container {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjust as needed */
+    grid-gap: 15px; /* Reduce gap between cards */
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .events-container {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust as needed */
+  }
+}
+
+
+  </style>
+  
+  <title>Beyond Charity</title>
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="static/css/bootstrap.css" />
+  <!-- font awesome style -->
+  <link rel="stylesheet" type="text/css" href="static/css/font-awesome.min.css" />
+
+  <!-- Custom styles for this template -->
+  <link href="static/css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="static/css/responsive.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <input id="user_id" type="text" value="{{session['user_id']}}" hidden >
+  <div class="hero_area">
+    <!-- header section strats -->
+    {% extends "navbar.html" %}
+
+{% block content %}
+
+<div class="events-container" id="eventsContainer"></div>
+
+
+<script type="module" src="static/js/my-deliveries.js"></script>
+{% endblock %}
+
+
+  </body>
+</html>

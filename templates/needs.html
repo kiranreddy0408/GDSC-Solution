@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Donation Form</title>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Google Maps JavaScript library -->
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyDjkCofvQ_UyeMYN-jIEw6wBpNrWfk5HIA"></script>
+ 
+<style>
+#search_input {font-size:18px;}
+
+.loc input{
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.loc input:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+        /* Custom CSS modifications */
+        body {
+            background-color: #f3f3f3;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        button[type="submit"] {
+            width: 100%;
+        }
+    /* Additional CSS styles here */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f3f3f3;
+    }
+    .container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 20px;
+    }
+    label {
+        font-weight: bold;
+    }
+    input[type="text"], input[type="number"], select {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    button[type="submit"] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    button[type="submit"]:hover {
+        background-color: #45a049;
+    }
+    .donation-section {
+        display: none;
+    }
+</style>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="static/css/bootstrap.css" />
+  <!-- font awesome style -->
+  <link rel="stylesheet" type="text/css" href="static/css/font-awesome.min.css" />
+
+  <!-- Custom styles for this template -->
+  <link href="static/css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="static/css/responsive.css" rel="stylesheet" />
+
+</head>
+
+<body>
+  <div class="hero_area">
+    <!-- header section strats -->
+    {% extends "navbar.html" %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <h2>Need Form</h2>
+    <form id="donationForm">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="beneficiaryName">Name:</label>
+                    <input type="text" class="form-control" id="beneficiaryName" name="beneficiaryName" required>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="beneficiaryMobileNo">MobileNo:</label>
+                    <input type="text" class="form-control" id="beneficiaryMobileNo" name="beneficiaryMobileNo" required>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group loc">
+                    <label for="beneficiaryLocation">Location:</label>
+                    <input type="text" class="form-control" id="beneficiaryLocation" name="beneficiaryLocation" required>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="donationType">Need Type:</label>
+                    <select class="form-control" id="donationType" name="donationType" onchange="toggleDonationSection()">
+                        <option value="">Select Donation Type</option>
+                        <option value="food">Food</option>
+                        <option value="clothes">Clothes</option>
+                        <option value="books">Books</option>
+                        <option value="fund">Fund</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Donation sections go here -->
+<!-- Food Donation Section -->
+<div id="foodSection" class="donation-section" style="display: none;">
+    <h3>Food Need Details</h3>
+    <div class="row">
+        
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="foodQuantity">Quantity:</label>
+                <select class="form-control" id="foodQuantity" name="foodQuantity">
+                    <option value="10-50">10-50 Persons</option>
+                    <option value="50-100">50-100 Persons</option>
+                    <option value="100-250">100-250 Persons</option>
+                    <option value="300-500">300-500 Persons</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="foodDescription">Description:</label>
+                <textarea class="form-control" id="foodDescription" name="foodDescription" rows="3"></textarea>
+            </div>
+        </div>
+       
+    </div>
+</div>
+
+
+<!-- Clothes Donation Section -->
+<div id="clothesSection" class="donation-section" style="display: none;">
+    <h3>Clothes Need Details</h3>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="clothesSize">Size:</label>
+                <input type="text" class="form-control" id="clothesSize" name="clothesSize">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="clothesType">Type:</label>
+                <input type="text" class="form-control" id="clothesType" name="clothesType">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Books Donation Section -->
+<div id="booksSection" class="donation-section" style="display: none;">
+    <h3>Books Need Details</h3>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="bookType">Type of Book:</label>
+                <input type="text" class="form-control" id="bookType" name="bookType">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="bookQuantity">Quantity:</label>
+                <input type="text" class="form-control" id="bookQuantity" name="bookQuantity">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Miscellaneous Donation Section -->
+<div id="fundSection" class="donation-section" style="display: block;">
+    <h3>Fund Need Details</h3>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="fundType">Type:</label>
+                <input type="text" class="form-control" id="fundType" name="fundType">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="fundDescription">Description:</label>
+                <textarea class="form-control" id="fundDescription" name="fundDescription" rows="3"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Other Donation Section -->
+<div id="otherSection" class="donation-section" style="display: none;">
+    <h3>Other Need Details</h3>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="otherDetails">Details:</label>
+                <textarea class="form-control" id="otherDetails" name="otherDetails" rows="3"></textarea>
+            </div>
+        </div>
+        <!-- Add another column if needed -->
+    </div>
+</div>
+
+        <button type="submit" class="btn btn-primary">Submit Need</button>
+    </form>
+</div>
+<input id="user_id" type="text" value="{{session['user_id']}}" hidden >
+<script>
+    function toggleDonationSection() {
+        var donationType = document.getElementById('donationType').value;
+        var donationSections = document.getElementsByClassName('donation-section');
+        for (var i = 0; i < donationSections.length; i++) {
+            donationSections[i].style.display = 'none';
+        }
+        if (donationType) {
+            document.getElementById(donationType + 'Section').style.display = 'block';
+        }
+    }
+</script>
+<script>
+    var searchInput = 'beneficiaryLocation';
+     
+    $(document).ready(function () {
+     var autocomplete;
+     autocomplete = new google.maps.places.Autocomplete((document.getElementById(searchInput)), {
+      types: ['geocode'],
+      componentRestrictions: {
+       country: "IN",
+    //    state:"TELANGANA"
+      }
+     });
+     var defaultBounds = new google.maps.LatLngBounds(
+            new google.maps.LatLng(17.12, 77.36), // South-west corner (approx. coordinates for Telangana)
+            new google.maps.LatLng(19.9, 81.17)   // North-east corner (approx. coordinates for Telangana)
+        );
+        autocomplete.setBounds(defaultBounds);
+      
+     google.maps.event.addListener(autocomplete, 'place_changed', function () {
+      var near_place = autocomplete.getPlace();
+     });
+    });
+    </script>
+    
+<script type="module" src="static/js/need.js"></script>
+{% endblock%}
+</body>
+</html>

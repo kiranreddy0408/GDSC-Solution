@@ -54,7 +54,21 @@
               <a class="nav-link" href="#locations">Our locations</a>
              </div>
             </li>
+            {% if 'isLoggedIn' in session %}
            
+            {% if userType == "donor" %}
+                <!-- Show "My Donations" link for donors -->
+                <li class="nav-item">
+                    <a class="nav-link" href="/mydonations">My Donations</a>
+                </li>
+            {% else %}
+                <!-- Show "My Deliveries" link for volunteers -->
+                <li class="nav-item">
+                    <a class="nav-link" href="/mydeliveries">My Deliveries</a>
+                </li>
+            {% endif %}
+       
+        {% endif %}
             {% if 'isLoggedIn' in session %}
           <!-- Show logout link if logged in -->
           <li class="nav-item">
