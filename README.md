@@ -3,8 +3,10 @@
 
 [Website Link](#) (Replace # with your actual website link)
 
-![Screenshot 1](screenshot1.png)
-![Screenshot 2](screenshot2.png)
+![Screenshot 1](![image](https://github.com/kiranreddy0408/GDSC-Solution/assets/110777038/ebfb2c29-a278-4e60-aba7-0574e6bfcecc)
+)
+![Screenshot 2](![image](https://github.com/kiranreddy0408/GDSC-Solution/assets/110777038/6af8fa12-22e8-4998-93b5-4b70e1239312)
+)
 
 ## Technology Stacks Used
 
@@ -25,7 +27,7 @@ BeyondCharity is a web application designed to facilitate transparent and effici
 3. **Needs Registration**: Beneficiaries can register their needs by specifying the required items and their location.
 4. **Map View**: Explore the interactive map to view available donations and needs in your vicinity.
 5. **Search Functionality**: Use the search feature to filter donations and needs based on location, category, or urgency.
-6. **Matching and Notification**: Volunteers within a predefined radius receive real-time notifications when a donation matches a nearby need, facilitating efficient distribution.
+6. **Matching and Notification**: Volunteers within a predefined radius receive real-time notifications when a donation matches a nearby need, facilitating efficient distribution(Future enchancement).
 
 ## Get Involved
 
