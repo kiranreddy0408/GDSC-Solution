@@ -22,21 +22,46 @@
   const app = initializeApp(firebaseConfig);
   const db = getFirestore();
   const donationsCollection = collection(db, 'donations'); 
+  const needsCollection = collection(db, 'needs'); 
 
 
 
 
-  getDocs(donationsCollection)
+  const donationsPromise = getDocs(donationsCollection)
   .then(snapshot => {
       const donations = [];
       snapshot.docs.forEach(doc => {
           donations.push({ ...doc.data(), id: doc.id });
       });
-      console.log(JSON.stringify(donations)); 
-      sessionStorage.setItem('donations', JSON.stringify(donations));// Output donations data as JSON
-      window.location.href='/viewmap'
+      return donations;
   })
   .catch(error => {
       console.error('Error fetching donations:', error);
   });
+
+const needsPromise = getDocs(needsCollection)
+  .then(snapshot => {
+      const needs = [];
+      snapshot.docs.forEach(doc => {
+          needs.push({ ...doc.data(), id: doc.id });
+      });
+      return needs;
+  })
+  .catch(error => {
+      console.error('Error fetching needs:', error);
+  });
+
+// Execute both promises concurrently
+Promise.all([donationsPromise, needsPromise])
+  .then(([donations, needs]) => {
+      console.log("Donations:", donations);
+      console.log("Needs:", needs);
+      sessionStorage.setItem('donations', JSON.stringify(donations)); // Store donations data in session storage
+      sessionStorage.setItem('needs', JSON.stringify(needs)); // Store needs data in session storage
+      window.location.href = '/viewmap'; // Redirect to viewmap page
+  })
+  .catch(error => {
+      console.error('Error fetching data:', error);
+  });
+
     
