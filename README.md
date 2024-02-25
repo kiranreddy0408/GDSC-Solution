@@ -3,10 +3,10 @@
 
 [Website Link](#) (Replace # with your actual website link)
 
-![Screenshot 1](![image](https://github.com/kiranreddy0408/GDSC-Solution/assets/110777038/ebfb2c29-a278-4e60-aba7-0574e6bfcecc)
-)
-![Screenshot 2](![image](https://github.com/kiranreddy0408/GDSC-Solution/assets/110777038/6af8fa12-22e8-4998-93b5-4b70e1239312)
-)
+![image](https://github.com/kiranreddy0408/GDSC-Solution/assets/110777038/ebfb2c29-a278-4e60-aba7-0574e6bfcecc)
+
+![image](https://github.com/kiranreddy0408/GDSC-Solution/assets/110777038/6af8fa12-22e8-4998-93b5-4b70e1239312)
+
 
 ## Technology Stacks Used
 
